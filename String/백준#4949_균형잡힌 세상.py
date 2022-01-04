@@ -7,7 +7,7 @@ while True:
             stack.append(s)
         elif s == ')': # 작은 닫는 괄호
             if stack:
-                if stack[-1] == '(': stack.pop()
+                if stack[-1] == '(': stack.pop() # 괄호 종류를 체크해야 하므로 if문이 필요한 것
                 else:
                     print('no')
                     break
@@ -16,7 +16,7 @@ while True:
                 break
         elif s == ']': # 큰 닫는 괄호
             if stack:
-                if stack[-1] == '[': stack.pop()
+                if stack[-1] == '[': stack.pop() # 괄호 종류를 체크해야 하므로 if문이 필요한 것
                 else:
                     print('no')
                     break
