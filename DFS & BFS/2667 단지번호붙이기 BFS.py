@@ -2,10 +2,12 @@
 from collections import deque
 
 def solution(n):
+    # total = 0
     temp = []
     for i in range(n):
         for j in range(n):
             if graph[i][j] == 1: # 집이 있는 곳
+                # total += 1
                 answer = 0
                 queue = deque()
                 queue.append((i,j))
