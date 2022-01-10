@@ -59,13 +59,16 @@ def bfs(i,j):
     return answer
 
 def solution(n):
+    # cnt = 0
     temp = []
     for i in range(n):
         for j in range(n):
             if graph[i][j] == 1: # 집이 있는 곳
                 temp.append(bfs(i,j))
+                # cnt += 1
 
     print(len(temp))
+    # print(cnt)
     for k in sorted(temp):
         print(k)
 
