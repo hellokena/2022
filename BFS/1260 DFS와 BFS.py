@@ -26,7 +26,8 @@ def solution(n,m,v):
 
 # n:노드, m:간선, v:시작점
 n,m,v = map(int, input().split())
-graph = [[]*(n+1) for _ in range(n+1)]
+graph = [[] for _ in range(n+1)]
+#graph = [[]*(n+1) for _ in range(n+1)]
 visited = [0]*(n+1)
 for _ in range(m):
     x,y = map(int, input().split())
