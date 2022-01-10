@@ -1,5 +1,7 @@
 #dfs
 
+answer = 0
+
 def dfs(v):
     global answer
     visited[v] = 1 # 방문처리
@@ -9,6 +11,7 @@ def dfs(v):
             dfs(i)
 
 def solution(n,m):
+    global answer
     dfs(1)
     print(answer)
 
@@ -20,5 +23,4 @@ for _ in range(m):
     x,y = map(int, input().split())
     graph[x].append(y)
     graph[y].append(x)
-answer = 0
 solution(n,m)
