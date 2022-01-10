@@ -1,0 +1,25 @@
+#bfs
+from collections import deque
+def solution(n,m):
+    answer = 0
+    queue = deque()
+    queue.append(1) # 시작점
+    visited[1] = 1 # 방문처리
+    while queue:
+        next = queue.popleft()
+        for i in graph[next]:
+            if visited[i] == 0:
+                queue.append(i)
+                visited[i] = 1
+                answer += 1
+    print(answer)
+
+n = int(input()) # 컴퓨터 수
+m = int(input()) # 네트워크 수
+graph = [[] for _ in range(n+1)] # 연결리스트
+visited = [0]*(n+1)
+for _ in range(m):
+    x,y = map(int, input().split())
+    graph[x].append(y)
+    graph[y].append(x)
+solution(n,m)
