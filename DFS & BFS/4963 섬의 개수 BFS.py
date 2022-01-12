@@ -3,7 +3,7 @@
 #덩어리 갯수
 from collections import deque
 
-def bfs(hidx,widx):
+def bfs(hidx,widx,graph):
     queue = deque()
     queue.append((hidx,widx))
     graph[hidx][widx] = 0
@@ -25,7 +25,7 @@ def solution(w,h,graph):
     for i in range(h):
         for j in range(w):
             if graph[i][j] == 1: # 땅
-                bfs(i,j)
+                bfs(i,j,graph)
                 answer += 1
     print(answer)
 
