@@ -65,7 +65,7 @@ solution(n,m,graph)
 from collections import deque
 import sys
 # 덩어리 세기
-def bfs(v, visited):
+def bfs(v, visited, graph): # graph도 전달해줄수 있도록 구성
     queue = deque()
     queue.append(v)
     visited[v] = 1
@@ -81,7 +81,7 @@ def solution(n,m,graph):
     visited = [0] * (n+1)
     for i in range(1, n+1):
         if visited[i] == 0: # 방문하지 않은 노드
-            bfs(i, visited)
+            bfs(i, visited, graph)
             answer += 1
     print(answer)
 
