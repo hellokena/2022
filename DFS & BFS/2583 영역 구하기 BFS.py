@@ -23,14 +23,14 @@ def bfs(i,j,m,n,graph): # 갈 수 없는 곳을 탐색한다
 
 def solution(m,n,k,graph): # 갈 수 없는 곳을 탐색한다
     temp = []
-    #answer = 0
+    #total = 0
     for i in range(m): # 세로
         for j in range(n): # 가로
             if graph[i][j] == 0:
                 temp.append(bfs(i,j,m,n,graph))
-                #answer += 1
-    #print(answer)
-    #print(len(temp))
+                #total += 1
+    #print(total)
+    print(len(temp))
     print(' '.join(map(str, sorted(temp))))
 
 m,n,k = map(int, input().split()) # height, width, 직사각형 갯수
