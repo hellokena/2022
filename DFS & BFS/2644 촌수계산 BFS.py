@@ -1,6 +1,7 @@
 # bfs
 from collections import deque
 
+# bfs는 dfs와 달리 재귀함수가 아님!
 def bfs(v,graph,visited):
     # 관계를 나타내는 변수를 선언할 필요 없음
     result = [0]*(n+1) ##
@@ -10,18 +11,19 @@ def bfs(v,graph,visited):
     while queue:
         pv = queue.popleft()
         if pv == n2: ##
-            print(result[pv])
-            break
+            return result[pv]
         for i in graph[pv]:
             if visited[i] == 0:
                 queue.append(i)
                 visited[i] = 1
                 result[i] = result[pv] + 1 ##
-    else: print(-1)
+    return -1
 
 def solution(n,n1,n2,r,graph):
     visited = [0]*(n+1)
-    bfs(n1,graph,visited)
+    answer = bfs(n1,graph,visited)
+    return answer
+    print(answer)
 
 n = int(input()) # 사람수
 n1,n2 = map(int, input().split()) # 찾아야 하는 두 사람
@@ -49,14 +51,14 @@ def solution(n,n1,n2,r,graph):
         pv = queue.popleft()
         if pv == n2:  ##
             print(result[pv])
-            break
+            return result[pv]
         for i in graph[pv]:
             if visited[i] == 0:
                 queue.append(i)
                 visited[i] = 1
                 result[i] = result[pv] + 1  ##
-    else:
-        print(-1)
+    print(-1)
+    return -1
 
 n = int(input()) # 사람수
 n1,n2 = map(int, input().split()) # 찾아야 하는 두 사람
