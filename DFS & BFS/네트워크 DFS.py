@@ -33,7 +33,7 @@ def dfs(n, computers, visited, v):
 def solution(n, computers):
     answer = 0
     visited = [0]*n
-    for i in range(n):
+    for i in range(n): # graph적 접근이 아닌 node 자체로 접근
         if visited[i] == 0:
             dfs(n, computers, visited, i)
             answer += 1
