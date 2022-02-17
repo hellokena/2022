@@ -10,4 +10,4 @@ WHERE CITY LIKE 'A%' OR
       
 SELECT DISTINCT(CITY)
 FROM STATION
-WHERE left(city,1) in ('a','e','i','o','u')
+WHERE left(city,1) in ('a','e','i','o','u');
