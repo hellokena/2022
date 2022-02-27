@@ -27,5 +27,5 @@ def solution(n):
             dict[(e-1,c)] = dict[(e,c)] + 1
             queue.append((e-1, c))
 
-            n = int(input())
+n = int(input())
 solution(n)
