@@ -1,3 +1,4 @@
+import sys
 from collections import deque
 
 def solution(n,m,k,x,graph):
@@ -22,9 +23,43 @@ def solution(n,m,k,x,graph):
                 print(i)
     else: print(-1)
 
-n,m,k,x = map(int, input().split())
+n,m,k,x = map(int, sys.stdin.readline().split())
 graph = [[] for _ in range(n+1)]
 for _ in range(m):
-    a,b = map(int, input().split())
+    a,b = map(int, sys.stdin.readline().split())
+    graph[a].append(b)
+solution(n,m,k,x,graph)
+
+# -------------------------------------
+
+import sys
+from collections import deque
+
+def solution(n,m,k,x,graph):
+    answer = []
+    visited = [0]*(n+1)
+    queue = deque()
+    queue.append((x,0))
+    visited[x] = 1 # 방문처리
+
+    while queue:
+        now, d = queue.popleft()
+        if d == k:
+           answer.append(now)
+        for next in graph[now]:
+            if visited[next] == 0:
+                queue.append((next, d+1))
+                visited[next] = 1 # 방문처리
+
+    if len(answer) == 0: print(-1)
+    else:
+        answer.sort()
+        for a in answer:
+            print(a)
+
+n,m,k,x = map(int, sys.stdin.readline().split())
+graph = [[] for _ in range(n+1)]
+for _ in range(m):
+    a,b = map(int, sys.stdin.readline().split())
     graph[a].append(b)
 solution(n,m,k,x,graph)
