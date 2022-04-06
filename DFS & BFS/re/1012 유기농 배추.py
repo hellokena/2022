@@ -2,7 +2,7 @@
 import sys
 sys.setrecursionlimit(10**5)
 
-def dfs(nowh,noww):
+def dfs(nowh,noww,m,n,graph):
     graph[nowh][noww] = 0 # 방문 처리
     # 상하좌우 방향벡터
     dh = [-1, 0, 1, 0]
@@ -11,14 +11,14 @@ def dfs(nowh,noww):
         nexth = nowh + dh[i]
         nextw = noww + dw[i]
         if 0<=nexth<n and 0<=nextw<m and graph[nexth][nextw] == 1:
-            dfs(nexth,nextw)
+            dfs(nexth,nextw,m,n,graph)
 
 def solution(m,n,k,graph):
     answer = 0
     for i in range(n): # 세로
         for j in range(m): # 가로
             if graph[i][j] == 1: # 배추가 있는 위치
-                dfs(i,j)
+                dfs(i,j,m,n,graph)
                 answer += 1
     print(answer)
 
@@ -37,7 +37,7 @@ for _ in range(tc):
 # bfs
 from collections import deque
 
-def bfs(nowh,noww):
+def bfs(nowh,noww,m,n,graph):
     queue = deque()
     queue.append((nowh,noww))
     graph[nowh][noww] = 0 # 방문 처리
@@ -58,7 +58,7 @@ def solution(m,n,k,graph):
     for i in range(n): # 세로
         for j in range(m): # 가로
             if graph[i][j] == 1: # 배추가 있는 위치
-                bfs(i,j)
+                bfs(i,j,m,n,graph)
                 answer += 1
     print(answer)
 
