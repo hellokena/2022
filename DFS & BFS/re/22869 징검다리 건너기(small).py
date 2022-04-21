@@ -10,7 +10,7 @@ def bfs(nidx):
         if nown == n-1: return 'YES'
         for nextn in range(nown+1, n):
             power = (nextn-nown)*(1+abs(stones[nown]-stones[nextn]))
-            if power<=k and 0<=nextn<n and visited[nextn] == 0:
+            if power<=k and visited[nextn] == 0:
                 queue.append(nextn)
                 visited[nextn] = 1
     return 'NO'
