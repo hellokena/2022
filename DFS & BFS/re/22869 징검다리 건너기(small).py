@@ -1,7 +1,7 @@
 from collections import deque
 
 def bfs(nidx):
-    visited = [0]*
+    visited = [0]*n
     queue = deque()
     queue.append(nidx)
     visited[nidx] = 1
