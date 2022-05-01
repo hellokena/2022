@@ -23,3 +23,27 @@ def solution(n,k):
     print(bfs(n,k))
 n,k = map(int, input().split())
 solution(n,k)
+
+# -----------------------------------------------
+
+from collections import deque
+
+def bfs(n,k):
+    visited = set()
+    queue = deque()
+    queue.append((n,0))
+    visited.add(n) # 시간단축
+    while queue:
+        loc, cnt = queue.popleft()
+        if loc == k: break
+        for next in [loc-1, loc+1, loc*2]:
+            if 0<=next<=100000 and next not in visited:
+                queue.append((next,cnt+1))
+                visited.add(next)
+    return cnt
+
+def solution(n,k):
+    print(bfs(n,k))
+
+n,k = map(int, input().split())
+solution(n,k)
