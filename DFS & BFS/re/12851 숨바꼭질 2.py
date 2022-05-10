@@ -60,3 +60,30 @@ def solution(n,k):
 
 n,k = map(int, input().split())
 solution(n,k)
+
+# ----------------------------------------
+from collections import deque
+def solution(n,k):
+    visited = set()
+    queue = deque()
+    queue.append((n,0))
+    visited.add(n)# 방문 처리
+    visited_cnt = 0
+    min_time = 0
+    while queue:
+        now,cnt = queue.popleft()
+        visited.add(now)
+        if now == k:
+            if visited_cnt == 0:
+                min_time = cnt
+            if min_time == cnt:
+                visited_cnt += 1
+        for next in [now-1, now+1, now*2]:
+            if 0<=next<=100000 and next not in visited:
+                queue.append((next,cnt+1)) # 뒤에서 방문 처리하면 방문할 수 없음
+
+    print(min_time)
+    print(visited_cnt)
+
+n,k = map(int, input().split())
+solution(n,k)
