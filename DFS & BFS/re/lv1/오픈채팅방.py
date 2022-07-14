@@ -17,5 +17,18 @@ def solution(record):
         elif now_rec[0] == 'Leave':
             answer.append(people[now_rec[1]] + '님이 나갔습니다.')
     return answer
-        
-    
+
+def solution(record):
+    people = {}
+    for rec in record:
+        now_rec = rec.split()
+        if now_rec[0] in ['Enter','Change']:
+            people[now_rec[1]] = now_rec[2]
+    answer = []
+    for rec in record:
+        now_rec = rec.split()
+        if now_rec[0] == 'Enter':
+            answer.append(people[now_rec[1]] + '님이 들어왔습니다.')
+        elif now_rec[0] == 'Leave':
+            answer.append(people[now_rec[1]] + '님이 나갔습니다.')
+    return answer
