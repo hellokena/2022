@@ -20,7 +20,7 @@ def solution(n, arr1, arr2):
         answer.append(temp)
     return answer
   
-  # 사람들 재능 미쳤다... 비트 연산 zfill 함수도 알아감
+  # 사람들 재능 미쳤다... 비트 연산 zfill 함수도 알아감 # 속도도 효율적...
   def solution(n, arr1, arr2):
     # 그래프 생성
     answer = []
