@@ -16,3 +16,15 @@ def solution(N, stages):
     for key,value in answer:
         temp.append(key)
     return temp
+
+def solution(N, stages):
+    failure = {}
+    players = len(stages)
+    for i in range(1,N+1):
+        if players != 0: 
+            failure[i] = stages.count(i) / players
+            players -= stages.count(i)
+        else: failure[i] = 0
+    answer = sorted(failure, reverse=True,key=lambda x:failure[x])
+    return answer
+    
