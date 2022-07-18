@@ -62,3 +62,29 @@ def solution(dartResult):
     answer += prev_score
     answer += now_score  
     return answer
+
+def solution(dartResult):
+    score = []
+    now_score = ''
+    for dart in dartResult:
+        if dart.isdigit():
+            now_score += dart
+        if dart == 'S':
+            now_score = int(now_score)**1
+            score.append(now_score)
+            now_score = ''
+        elif dart == 'D':
+            now_score = int(now_score)**2
+            score.append(now_score)
+            now_score = ''
+        elif dart == 'T':
+            now_score = int(now_score)**3
+            score.append(now_score)
+            now_score = ''
+        elif dart == '*':
+            if len(score) > 1:
+                score[-2] *= 2
+            score[-1] *= 2
+        elif dart == '#':
+            score[-1] = -score[-1] 
+    return sum(score)
